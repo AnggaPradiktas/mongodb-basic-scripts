@@ -30,9 +30,60 @@ db.students3.insertMany( [
    { "_id" : 3, "tests" : [ 70, 75, 82 ], "lastUpdate" : ISODate("2019-01-01T00:00:00Z") }
 ] )
 
+/*insert many inventory embedded*/
+db.inventory.insertMany([
+   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
+   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
+]);
 
-/*find */
+/*insert many inventory array*/
+db.inventory.insertMany([
+   { item: "journal", qty: 25, tags: ["blank", "red"], dim_cm: [ 14, 21 ] },
+   { item: "notebook", qty: 50, tags: ["red", "blank"], dim_cm: [ 14, 21 ] },
+   { item: "paper", qty: 100, tags: ["red", "blank", "plain"], dim_cm: [ 14, 21 ] },
+   { item: "planner", qty: 75, tags: ["blank", "red"], dim_cm: [ 22.85, 30 ] },
+   { item: "postcard", qty: 45, tags: ["blue"], dim_cm: [ 10, 15.25 ] }
+]);
+
+/*insert many inventory embedded array*/
+db.inventory.insertMany( [
+   { item: "journal", instock: [ { warehouse: "A", qty: 5 }, { warehouse: "C", qty: 15 } ] },
+   { item: "notebook", instock: [ { warehouse: "C", qty: 5 } ] },
+   { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 15 } ] },
+   { item: "planner", instock: [ { warehouse: "A", qty: 40 }, { warehouse: "B", qty: 5 } ] },
+   { item: "postcard", instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
+]);
+
+/*find query*/
 db.inventory.find( { item: "canvas" } )
+db.inventory.find( {} )
+db.inventory.find( { status: { $in: [ "A", "D" ] } } )
+db.inventory.find( { status: "A", qty: { $lt: 30 } } )
+
+db.inventory.find( {
+     status: "A",
+     $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ]
+} )
+
+/*find query embedded documents*/
+db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )
+db.inventory.find( { "size.h": { $lt: 15 } } )
+
+/*find query array documents*/
+db.inventory.find( { tags: ["red", "blank"] } )
+db.inventory.find( { tags: { $all: ["red", "blank"] } } )
+db.inventory.find( { dim_cm: { $gt: 25 } } )
+db.inventory.find( { dim_cm: { $elemMatch: { $gt: 22, $lt: 30 } } } )
+
+/*find query array embedded documents*/
+db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )
+db.inventory.find( { "instock": { qty: 5, warehouse: "A" } } )
+db.inventory.find( { 'instock.qty': { $lte: 20 } } )
+db.inventory.find( { "instock": { $elemMatch: { qty: { $gt: 10, $lte: 20 } } } } )
+
 
 
 /*update one*/
@@ -87,6 +138,15 @@ db.members.updateOne(
    ]
 )
 
+/*update many member*/
+db.members.updateMany(
+   { },
+   [
+      { $set: { status: "Modified", comments: [ "$misc1", "$misc2" ], lastUpdate: "$$NOW" } },
+      { $unset: [ "misc1", "misc2" ] }
+   ]
+)
+
 /*update one student*/
 db.students3.updateOne(
    { _id: 3 },
@@ -104,6 +164,22 @@ db.students3.updateOne(
    ]
 )
 
+/*update many student*/
+db.students3.updateMany(
+   { },
+   [
+     { $set: { average : { $trunc: [ { $avg: "$tests" }, 0 ] } , lastUpdate: "$$NOW" } },
+     { $set: { grade: { $switch: {
+                           branches: [
+                               { case: { $gte: [ "$average", 90 ] }, then: "A" },
+                               { case: { $gte: [ "$average", 80 ] }, then: "B" },
+                               { case: { $gte: [ "$average", 70 ] }, then: "C" },
+                               { case: { $gte: [ "$average", 60 ] }, then: "D" }
+                           ],
+                           default: "F"
+     } } } }
+   ]
+)
 
 
 
