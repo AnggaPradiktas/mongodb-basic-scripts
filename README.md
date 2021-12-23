@@ -48,6 +48,11 @@ Setelah kita mengunduh dan menginstall Mongo Compass selanjutnya kita akan mengh
 
 ## Part 5 - Performing CRUD Operations
 
+Untuk melakukan operasi CRUD (Create, Read, Update, Delete) kita dapat menggunakan Mongo Shell yang terinstall bersamaan dengan Mongo Compass. Berikut contoh command yang dapat digunakan [MongoDB Basic Commands](https://github.com/AnggaPradiktas/mongodb-basics/blob/main/basic-scripts.js)
+
+![](src/gif/crud_operation_mongodb.gif)
+
+
 
 
 
