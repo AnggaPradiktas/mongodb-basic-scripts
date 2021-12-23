@@ -9,6 +9,8 @@ MongoDB Atlas merupakan Database as a Service (DBaaS) NoSQL yang bisa kita manfa
 Lakukan pendaftaran dengan menggunakan link berikut - https://www.mongodb.com/cloud/atlas/register. Kita dapat menggunakan email pribadi maupun company untuk melakukan pendaftaran. 
 
 Selanjutnya kita akan diarahkan untuk membuat project pada akun yang baru kita buat.
+
+Membuat MongoDB Account:
 ![](src/gif/create_project_mongodb.gif)
 
 
