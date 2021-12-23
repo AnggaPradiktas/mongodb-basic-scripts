@@ -33,6 +33,8 @@ Untuk mengexplore fungsi dari MongoDB lebih lanjut, kita bisa melakukan load sam
 
 ![](src/gif/load_sample_dataset_mongodb.gif)
 
+Jika proses load sample dataset telah selesai, maka kita akan tampak daftar dataset seperti berikut:
+![](src/img/sample-dataset.png)
 
 
 ## Part 4 - Connect Dataset to MongoDB Compass
