@@ -24,8 +24,15 @@ Setelah selesai membuat akun gratis MongoDB, selanjutnya kita dapat melakukan se
 
 ![](src/gif/create_cluster_mongodb.gif)
 
+Pada step ini kita akan diminta untuk menambahkan username dan password (dapat diubah, pada menu setting), dan menambahkan IP Address
+
 
 ## Part 3 - Load Sample Dataset
+
+Untuk mengexplore fungsi dari MongoDB lebih lanjut, kita bisa melakukan load sample dataset yang telah disediakan.
+
+![](src/gif/load_sample_dataset_mongodb.gif)
+
 
 
 ## Part 4 - Connect Dataset to MongoDB Compass
