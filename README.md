@@ -10,12 +10,15 @@ Lakukan pendaftaran dengan menggunakan link berikut - https://www.mongodb.com/cl
 
 Selanjutnya kita akan diarahkan untuk membuat project pada akun yang baru kita buat.
 
+
+## Part 2 - Setting Project & Cluster MongoDB
+
 Membuat MongoDB Account:
 ![](src/gif/create_project_mongodb.gif)
 
 
-## Part 2 - Setting Project & Cluster MongoDB
-
+Setelah selesai membuat akun gratis MongoDB, selanjutnya kita dapat melakukan setting Project dan Cluster pada MongoDB, sesuai dengan langkah dibawah ini. 
+![](src/gif/create_cluster_mongodb.gif)
 
 
 ## Part 3 - Load Sample Dataset
