@@ -18,6 +18,7 @@ Membuat MongoDB Account:
 
 
 Setelah selesai membuat akun gratis MongoDB, selanjutnya kita dapat melakukan setting Project dan Cluster pada MongoDB, sesuai dengan langkah dibawah ini. 
+
 ![](src/gif/create_cluster_mongodb.gif)
 
 
