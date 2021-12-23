@@ -17,7 +17,7 @@ Membuat MongoDB Account:
 ![](src/gif/create_project_mongodb.gif)
 
 Jika proses ini telah selesai, maka kita akan diarahkan kehalaman berikut
-![](src/img/database-deployments.png =800x450)
+![](src/img/database-deployments.png | width=800)
 
 
 Setelah selesai membuat akun gratis MongoDB, selanjutnya kita dapat melakukan setting Project dan Cluster pada MongoDB, sesuai dengan langkah dibawah ini. 
