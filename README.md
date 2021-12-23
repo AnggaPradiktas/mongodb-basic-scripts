@@ -29,7 +29,7 @@ Pada step ini kita akan diminta untuk menambahkan username dan password (dapat d
 
 ## Part 3 - Load Sample Dataset
 
-Untuk mengexplore fungsi dari MongoDB lebih lanjut, kita bisa melakukan load sample dataset yang telah disediakan.
+Untuk mengexplore fungsi dari MongoDB lebih lanjut, kita bisa melakukan load sample dataset yang telah disediakan. Sample dataset berukuran sekitar 350MB yang bisa kita download kedalam cluster yang telah kita buat.
 
 ![](src/gif/load_sample_dataset_mongodb.gif)
 
