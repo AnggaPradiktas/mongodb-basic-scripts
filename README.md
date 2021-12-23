@@ -39,7 +39,10 @@ Jika proses load sample dataset telah selesai, maka kita akan tampak daftar data
 
 ## Part 4 - Connect Dataset to MongoDB Compass
 
-Download Mongo Compass disini - https://www.mongodb.com/try/download/compass
+Download Mongo Compass disini - https://www.mongodb.com/try/download/compass. Lalu install pada komputer kita.
+
+Setelah kita mengunduh dan menginstall Mongo Compass selanjutnya kita akan menghubungkan sample dataset tadi dengan Mongo Compass agar lebih mudah bagi kita untuk melakukan query dan data explorasi. Instalasi Mongo Compass juga telah termasuk dengan MongoSH (Mongo Shell)
+
 
 ## Part 5 - Performing CRUD Operations
 
